@@ -22,9 +22,9 @@ class SavedSearchProvider {
 
         let splunkUrl = vscode.workspace.getConfiguration().get('splunk.commands.splunkRestUrl');
         let splunkToken = vscode.workspace.getConfiguration().get('splunk.commands.token');
-        if ((!splunkUrl) || (!splunkToken)) {
-            return [new vscode.TreeItem("Splunk URL and Token required. Check extension settings.")];
-        }
+        //if ((!splunkUrl) || (!splunkToken)) {
+        //    return [new vscode.TreeItem("Splunk URL and Token required. Check extension settings.")];
+        //}
         if(filter) {
             filter = `&search=${filter}`
         } 
@@ -69,11 +69,11 @@ class SavedSearchProvider {
             reject(Error(m))
         }
 
-        if(!splunkToken) {
-            let m = "A Splunk autorization token is required. Please check your settings."
-            vscode.window.showErrorMessage(m);
-            reject(Error(m))
-        }
+        //if(!splunkToken) {
+        //    let m = "A Splunk autorization token is required. Please check your settings."
+        //    vscode.window.showErrorMessage(m);
+        //    reject(Error(m))
+        //}
 
         let searchResults = new Promise(function(resolve, reject) {
             request(
