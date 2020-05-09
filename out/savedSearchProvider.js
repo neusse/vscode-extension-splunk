@@ -37,7 +37,7 @@ class SavedSearchProvider {
                     uri: `${splunkUrl}/servicesNS/-/-/saved/searches?sort_key=name&f=acl*&count=0&output_mode=json${filter}`,
                     strictSSL: false,
                     headers : {
-                        "Authorization": `Bearer ${splunkToken}`
+                        'authorization': "Basic c3BsdW5rLWVudG1vbi1zdmMtYWNjb3VudDpZdlVzSSVTcDAmczBFJUVuOTU="
                     },
                 },
                 function (error, response, body) {
@@ -82,7 +82,8 @@ class SavedSearchProvider {
                     uri: `${splunkUrl}/servicesNS/${savedSearchItem.owner}/${savedSearchItem.app}/search/jobs/export?output_mode=${outputMode}`,
                     strictSSL: false,
                     headers : {
-                        "Authorization": `Bearer ${splunkToken}`
+                        
+                        'authorization': "Basic c3BsdW5rLWVudG1vbi1zdmMtYWNjb3VudDpZdlVzSSVTcDAmczBFJUVuOTU="
                     },
                     body: "search=" + encodeURIComponent(`| savedsearch "${savedSearchItem.label}"`)
                     
@@ -125,7 +126,8 @@ function getSearchEmbedToken(search) {
                 uri: `${splunkUrl}/services/search/jobs/export?output_mode=${outputMode}`,
                 strictSSL: false,
                 headers : {
-                    "Authorization": `Bearer ${splunkToken}`
+                    
+                    'authorization': "Basic c3BsdW5rLWVudG1vbi1zdmMtYWNjb3VudDpZdlVzSSVTcDAmczBFJUVuOTU="
                 },
                 body: "search=" + encodeURIComponent(`search ${search}`)
                 
